@@ -8,9 +8,16 @@ def solution(s):
     count = []
     for i in s:
         i = ''.join(i.split(','))
-        count.append(len(i))
-    
-    for i in range(len(count)):
-        count2 = count.sort()
-        
+        count.append(int(i))
+    print(count)
+    for k in s:
+        for i,j in enumerate(count):
+            if min(count) == j:
+                answer.append((s[i]))
+                print(count)
+                del count[i]
+                continue
+            
+    print(count)
+    print(answer)
     return answer
