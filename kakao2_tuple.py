@@ -3,21 +3,20 @@ def solution(s):
     s = s.split('},{')
     s[0] = s[0][2:]
     s[-1] = s[-1][:-2]
-    print(s)
-    
     count = []
     for i in s:
         i = ''.join(i.split(','))
-        count.append(int(i))
-    print(count)
+        count.append(len(i))
     for k in s:
         for i,j in enumerate(count):
-            if min(count) == j:
-                answer.append((s[i]))
-                print(count)
-                del count[i]
-                continue
-            
-    print(count)
-    print(answer)
-    return answer
+            if j == min(count):
+                answer.append(s[i])
+                count[i] = max(count)+1  
+    answer = answer[:len(count)]
+    tmp = []
+    for i in answer:
+        i = i.split(',')
+        for tp in i:
+            if (int(tp) in tmp) == False:
+                tmp.append(int(tp))
+    return tmp
