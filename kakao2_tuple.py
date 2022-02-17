@@ -20,3 +20,12 @@ def solution(s):
             if (int(tp) in tmp) == False:
                 tmp.append(int(tp))
     return tmp
+
+####################################################################
+def solution(s):
+
+    s = Counter(re.findall('\d+', s))
+    return list(map(int, [k for k, v in sorted(s.items(), key=lambda x: x[1], reverse=True)]))
+
+import re
+from collections import Counter
