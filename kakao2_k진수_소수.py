@@ -6,7 +6,7 @@ def isprime(k):
             return False
 
     return True
-
+### 소수 판별 알고리즘 ###
 def solution(n, k):
     import re
     answer = 0
