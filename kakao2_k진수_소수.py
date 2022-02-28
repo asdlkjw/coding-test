@@ -24,3 +24,5 @@ def solution(n, k):
         if int(i) != 1 and isprime(int(i)) == True:
             answer += 1
     return answer
+
+### v
