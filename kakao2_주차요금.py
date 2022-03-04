@@ -14,5 +14,5 @@ def solution(fees, records):
                 fee = round(fees[0]-abs(i[3]-j[3]), 0)
                 print(fee)
     print(fees, record)
-    ## 좀만 쉬자
+    ## 좀만 쉬자ㄴㅇㄹㄴㅇㄹㄴ
     return answer
