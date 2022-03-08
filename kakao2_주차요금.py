@@ -15,4 +15,5 @@ def solution(fees, records):
                 print(fee)
     print(fees, record)
     ## 좀만 쉬자ㄴㅇㄹㄴㅇㄹㄴ
+    ## 쉬는날 
     return answer
