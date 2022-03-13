@@ -42,3 +42,21 @@ def solution(orders, course):
                 tmp +=1
         if tmp < 2:
             dl.append(i)
+            
+# Counter 함수를 이용해서 리스트에 있는 중복되는 값을 카운터해서 딕션형식으로 리턴해줌
+def solution(orders, course):
+    from itertools import combinations
+    from collections import Counter
+    
+    answer = []
+    
+    for c in course:
+        temp = []
+        for order in orders:
+            comb = combinations(sorted(order), c)
+            temp += comb
+        counter = Counter(temp)
+        if  len(counter) != 0 and max(counter.values()) >= 2:
+            answer += [''.join(f) for f in counter if counter[f] == max(counter.values())]
+
+    return sorted(answer)
