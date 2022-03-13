@@ -31,3 +31,14 @@ def solution(orders, course):
                 answer.append(result)
 
     return sorted(answer)
+
+
+### 시간초과 13,14,15 : 2개 이상 안시킨 cours 제외 시켰는데 그래도 시간초과임
+    dl = []
+    for i in course:
+        tmp = 0
+        for j in orders:
+            if len(j) >= i: 
+                tmp +=1
+        if tmp < 2:
+            dl.append(i)
