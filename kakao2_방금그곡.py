@@ -83,3 +83,7 @@ def solution(m, musicinfos):
             if (answer[1] == None) or (time > answer[1]):
                 answer = (title, time)
     return answer[0]
+
+
+
+# 다시 풀어보면 좋은 풀이
