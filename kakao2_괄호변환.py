@@ -22,24 +22,24 @@ def solution(p):
         for i in range(2, len(v)+2, 2):
             if (v[:i]).count('(') == v[:i].count(')'):
                 u, x = v[:i], v[i:]   
-                
+                print(u, x)
                 if right(u) == True:
                     if x == '':
                         return u
                     x = dive(x)
                     w = u + x   
-                    return w
-                
+                    return w      
                 else:
                     x = dive(x)
                     y = ''
-                    for i in u[1:-2]:
+                    for i in u[1:-1]:
                         if i == ')':
                             y += '('
                         else:
                             y += ')'
                     w = '(' + x + ')' + y
                     return w
+                
     answer = dive(p)
     print(answer)
                 
