@@ -3,31 +3,45 @@ def solution(p):
     if p == answer:
         return answer
     
+    def right(u):
+        a ,b = 0, 0
+        for i in u:
+            if i == '(':
+                a += 1
+            else:
+                b += 1
+            if a < b:
+                return False
+        return True
+                
+                
+    
     def dive(v):
         if v == '':
             return ''
         for i in range(2, len(v)+2, 2):
             if (v[:i]).count('(') == v[:i].count(')'):
                 u, x = v[:i], v[i:]   
-                if x == '':
-                    return u
                 
-                if u == True:
-                      x = dive(x)
+                if right(u) == True:
+                    if x == '':
+                        return u
+                    x = dive(x)
                     w = u + x   
                     return w
-            
-    
-    for i in range(2,len(p)+2, 2):
-        if (p[:i].count('(') == p[:i].count(')')):
-            u ,v = p[:i], p[i:]
-            
-            if u == True:
-                u, v = dive(v)
                 
-            else:
-                
-                '(' + v ')' + reverse u[1:-2]
+                else:
+                    x = dive(x)
+                    y = ''
+                    for i in u[1:-2]:
+                        if i == ')':
+                            y += '('
+                        else:
+                            y += ')'
+                    w = '(' + x + ')' + y
+                    return w
+    answer = dive(p)
+    print(answer)
                 
                 
         
