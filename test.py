@@ -38,27 +38,27 @@
     
 # print(re.findall(r'[a|f|s]', key))
 
-from itertools import combinations
-from collections import Counter
+# from itertools import combinations
+# from collections import Counter
 
 
-def solution(orders, course):
-    answer = []
-    for c in course:
-        temp = []
-        for order in orders:
-            combi = combinations(sorted(order), c)
-            temp += combi
-        counter = Counter(temp)
-        if len(counter) != 0 and max(counter.values()) != 1:
-            answer += [''.join(f) for f in counter if counter[f] == max(counter.values())]
+# def solution(orders, course):
+#     answer = []
+#     for c in course:
+#         temp = []
+#         for order in orders:
+#             combi = combinations(sorted(order), c)
+#             temp += combi
+#         counter = Counter(temp)
+#         if len(counter) != 0 and max(counter.values()) != 1:
+#             answer += [''.join(f) for f in counter if counter[f] == max(counter.values())]
 
-    return sorted(answer)
+#     return sorted(answer)
 
 
-aa = ["AC", "AC", "CDE", "ACDE", "BCFG", "ACDEH"]
+# aa = ["AC", "AC", "CDE", "ACDE", "BCFG", "ACDEH"]
 
-print(Counter(aa))
+# print(Counter(aa))
 
 
 # 구십구만  829.5 비트
@@ -104,3 +104,5 @@ print(Counter(aa))
 
 # 49,660,000
 
+for i in range(1, 1 << 5):
+    print(i)
