@@ -5,11 +5,12 @@ def multiply(arr):
     return reduce(lambda x, y: x * y, arr)
 def solution(clothes):
     answer = 0
-    clt = [i[1] for i in clothes]
+    clt = (i[1] for i in clothes)
     clt = (dict(Counter(clt)))
     clt_key = list(clt.keys())
     for i in range(1,len(clt_key)+1):
-        for j in (list(combinations(clt_key, i))):
+        cb = list(combinations(clt_key, i))
+        for j in cb:
             mult = []
             for k in j:
                 mult.append(clt[k])
