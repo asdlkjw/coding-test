@@ -12,9 +12,9 @@ def solution(numbers):
     from itertools import permutations
     pm = (re.findall('\d',numbers))
     temp = list()
-    for p in range(1,len(pm)+1):
+    for p in range(1,len(pm)+2):
         tmp = (permutations(pm, p))
         temp.extend([int(''.join(i)) for i in (list(set(tmp)))])
-    subprime = list(set(filter(lambda x: x>2,temp)))
+    subprime = list(set(filter(lambda x: x>=2,temp)))
     prime = (getPrime(max(subprime)+1))
     return len([i for i in subprime if i in prime ])
