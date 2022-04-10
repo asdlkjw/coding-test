@@ -3,14 +3,13 @@ def solution(citations):
     citations = sorted(citations)
     median = (np.median(citations))
     w = (citations.index(median))
-    while True:
-        down, up = False, False
-        if citations[w] <= len(citations[w:]):
+    print(citations)
+    print(w, 'df', median)
+    for _ in range(99):
+        if citations[w] > len(citations[w:]):
             w -= 1
-            down = True
-        if citations[w] >= len(citations[:w]):
+        elif citations[w] < len(citations[w:]):
             w += 1
-            up = True
-        if (down == True) and (up == True):
+        elif citations[w] == len(citations[w:]):
             return citations[w]
-    
+    return citations[w]
