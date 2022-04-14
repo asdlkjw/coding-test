@@ -1,8 +1,6 @@
 from collections import Counter
 from itertools import combinations
 from functools import reduce
-def multiply(arr):
-    return reduce(lambda x, y: x * y, arr)
 def solution(clothes):
     answer = 0
     clt = (i[1] for i in clothes)
@@ -14,7 +12,7 @@ def solution(clothes):
     for i in range(1,tmp):
         cb = combinations(clt_val, i)
         for j in cb:
-            answer += multiply(j)
+            answer += reduce(lambda x, y: x * y, j)
     return answer
 
 # 전체 종류에 콤비네이션 1부터 종류개수까지 늘려감
@@ -23,3 +21,11 @@ def solution(clothes):
 # 222    6 12 8   : 6C1 6C2-3 6C3-12
 
 # 2332   10 37 60 36
+
+def solution(clothes):
+    from collections import Counter
+    from functools import reduce
+    
+    cnt = Counter([kind for name, kind in clothes])
+    answer = reduce(lambda x, y: x*(y+1), cnt.values(), 1) - 1
+    return answer

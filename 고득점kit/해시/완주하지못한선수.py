@@ -6,7 +6,7 @@ def solution(participant, completion):
     return answer
 
 
-# 베스트 풀이   dict 은 사칙연산이 안되지만 Counter 객체는 뺄셈이 가능하다
+# 베스트 풀이   dict 은 사칙연산이 안되지만 Counter 객체는 뺄셈이
 import collections
 def solution(participant, completion):
     answer = collections.Counter(participant) - collections.Counter(completion)
