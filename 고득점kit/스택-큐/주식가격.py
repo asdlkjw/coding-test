@@ -5,5 +5,6 @@ def solution(prices):
             if prices[i] <= price:
                 answer[i] += 1
             else:
-                continue
+                answer[i] += 1
+                break
     return answer
