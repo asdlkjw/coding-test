@@ -1,12 +1,9 @@
 def solution(n, lost, reserve):
-    answer = n - len(lost)
-    tmp = []
-    for i in (reserve):
-        tmp.append(i-1)
-        tmp.append(i+1)
-        
-    for i in lost:
-        if (tmp.count(i)) > 0:
-            answer += 1
-    
-    return answer
+    set_reserve = set(reserve)-set(lost)
+    set_lost = set(lost)-set(reserve)
+    for i in set_reserve:
+        if i-1 in set_lost:
+            set_lost.remove(i-1)
+        elif i+1 in set_lost:
+            set_lost.remove(i+1)
+    return n - len(set_lost)
