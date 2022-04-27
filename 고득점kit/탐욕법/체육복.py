@@ -5,5 +5,5 @@ def solution(n, lost, reserve):
         if i-1 in set_lost:
             set_lost.remove(i-1)
         elif i+1 in set_lost:
-            set_lost.remove(i+1)
+            set_lost.remove(i+1)#
     return n - len(set_lost)
