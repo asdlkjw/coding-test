@@ -1,18 +1,16 @@
 def solution(people, limit):
-    tmp = []
-    for i,weight in enumerate(people):
-        if weight <= (limit/2):
-            tmp.append(weight)
-    for i in tmp:
-        people.pop(people.index(i))
-    answer = len(people)
-    
-    print(people)
-    for l in tmp:
-        for w in people:
-            if w <= (limit - l):
-                answer += 1
-                print('aaaaaa')
-                
-    print(len(tmp)/2)
+    answer = 0
+    people.sort()
+    left = 0
+    right = len(people) - 1
+    while left < right:
+        if people[left] + people[right] <= limit:
+            left += 1
+            right -= 1
+        else:
+            right -= 1
+        answer += 1
+    if left == right:
+        answer += 1
+
     return answer
