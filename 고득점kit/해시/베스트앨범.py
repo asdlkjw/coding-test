@@ -15,8 +15,11 @@ def solution(genres, plays):
         pq.append(sorted(p[1], reverse=True))
     
     for i in pq:
-        for k in i:
+        for a,k in enumerate(i):
+            if a >= 2:
+                continue
             for ans,j in enumerate(plays):
                 if k == j:
                     answer.append(ans)
+                    
     return answer
