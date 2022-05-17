@@ -9,17 +9,20 @@ def solution(genres, plays):
         name[i] = count
         
     q = sorted(name.items(), key = lambda item: sum(item[1]) , reverse = True)
-    
     pq = []
     for p in q:
         pq.append(sorted(p[1], reverse=True))
-    
     for i in pq:
         for a,k in enumerate(i):
             if a >= 2:
                 continue
+            tip = 0
             for ans,j in enumerate(plays):
                 if k == j:
                     answer.append(ans)
-                    
+                    tip +=1
+                    if tip == 2:
+                        break
+            if tip == 2:
+                break
     return answer
