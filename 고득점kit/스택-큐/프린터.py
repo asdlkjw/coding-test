@@ -49,3 +49,31 @@ def solution(priorities, location):
                     return i_print
         else:
             return i_print + 1
+        
+        
+        
+#--------------------------------------------------------------------
+def solution(priorities, location):
+    loc = 0
+    while priorities[location] != 0:
+        if loc == 0:
+            if priorities[loc] < max(priorities[loc+1:]):
+                loc += 1
+            else:
+                priorities[loc] = 0
+                loc += 1
+                
+        elif loc == (len(priorities)-1):
+            if priorities[loc] < max(priorities[:loc]):
+                loc = 0
+            else:
+                priorities[loc] = 0
+                loc = 0
+        else:
+            if priorities[loc] < max(priorities[loc+1:]) or priorities[loc] < max(priorities[:loc]):   
+                loc += 1
+            else:
+                priorities[loc] = 0
+                loc += 1  
+
+    return (priorities.count(0))
